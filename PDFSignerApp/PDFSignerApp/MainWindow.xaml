@@ -1,0 +1,40 @@
+﻿<Window x:Class="PDFSignerApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PDFSignerApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="500">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="PDF Signature Application" FontSize="24" HorizontalAlignment="Center" Margin="10" FontFamily="Arial"/>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+            <Button Name="btnSelectFile" Content="Select PDF" Width="92" Margin="10" Click="btnSelectFile_Click" FontFamily="Arial"/>
+            <TextBox Name="txtFilePath" Width="262" Margin="10" IsReadOnly="True"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+            <TextBlock Text="Enter PIN:" VerticalAlignment="Center" Margin="10" FontFamily="Arial"/>
+            <PasswordBox Name="txtPIN" Width="180" Margin="10"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,53,0,0" Grid.RowSpan="2">
+            <Button Name="btnSign" Content="Sign PDF" Width="120" Margin="10" Click="btnSign_Click" Background="#FF7358FB" BorderBrush="#FF5B5C8C" Foreground="White" FontFamily="Arial" FontSize="14"/>
+            <Button Name="btnVerify" Content="Verify Signature" Width="120" Margin="10" Click="btnVerify_Click" Foreground="White" BorderBrush="#FF5B5C8C" Background="#FF7358FB" FontFamily="Arial" FontSize="14"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+            <Image Name="statusIcon" Width="20" Height="20" Margin="10"/>
+            <TextBlock Name="statusMessage" Text="Ready" VerticalAlignment="Center" Margin="10" FontFamily="Arial"/>
+        </StackPanel>
+    </Grid>
+</Window>
