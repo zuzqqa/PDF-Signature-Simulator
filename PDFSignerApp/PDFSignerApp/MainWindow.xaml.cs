@@ -30,7 +30,6 @@ namespace PDFSignerApp
 
             if (openFileDialog.ShowDialog() == true)
             {
-                // Tylko jeśli użytkownik wybierze plik PDF, jego ścieżka zostanie zapisana
                 string selectedFile = openFileDialog.FileName;
                 txtFilePath.Text = selectedFile;
                 statusMessage.Text = "PDF file selected!";
