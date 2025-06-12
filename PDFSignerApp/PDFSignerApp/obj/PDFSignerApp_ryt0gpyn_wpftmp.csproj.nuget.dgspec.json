@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\PDF-Signature-Simulator\\RSAKeyGenerator\\RSAKeyGenerator\\RSAKeyGenerator.csproj": {}
+    "D:\\PDF-Signature-Simulator\\PDFSignerApp\\PDFSignerApp\\PDFSignerApp.csproj": {}
   },
   "projects": {
-    "D:\\PDF-Signature-Simulator\\RSAKeyGenerator\\RSAKeyGenerator\\RSAKeyGenerator.csproj": {
+    "D:\\PDF-Signature-Simulator\\PDFSignerApp\\PDFSignerApp\\PDFSignerApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\PDF-Signature-Simulator\\RSAKeyGenerator\\RSAKeyGenerator\\RSAKeyGenerator.csproj",
-        "projectName": "RSAKeyGenerator",
-        "projectPath": "D:\\PDF-Signature-Simulator\\RSAKeyGenerator\\RSAKeyGenerator\\RSAKeyGenerator.csproj",
+        "projectUniqueName": "D:\\PDF-Signature-Simulator\\PDFSignerApp\\PDFSignerApp\\PDFSignerApp.csproj",
+        "projectName": "PDFSignerApp",
+        "projectPath": "D:\\PDF-Signature-Simulator\\PDFSignerApp\\PDFSignerApp\\PDFSignerApp.csproj",
         "packagesPath": "C:\\Users\\zuzia\\.nuget\\packages\\",
-        "outputPath": "D:\\PDF-Signature-Simulator\\RSAKeyGenerator\\RSAKeyGenerator\\obj\\",
+        "outputPath": "D:\\PDF-Signature-Simulator\\PDFSignerApp\\PDFSignerApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -49,6 +49,12 @@
       "frameworks": {
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
+          "dependencies": {
+            "iTextSharp": {
+              "target": "Package",
+              "version": "[5.5.13.4, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
