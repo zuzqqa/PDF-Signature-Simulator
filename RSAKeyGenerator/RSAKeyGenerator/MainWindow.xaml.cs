@@ -8,16 +8,27 @@ namespace RSAKeyGenerator
 {
     public partial class MainWindow : Window
     {
-        // Constant defining the RSA key size (4096 bits)
+        /// <summary>
+        /// Constant defining the RSA key size (4096 bits).
+        /// </summary>
         private const int KeySize = 4096;
 
-        // File names for the private and public keys
+        /// <summary>
+        /// File name for the encrypted private key.
+        /// </summary>
         private const string PrivateKeyFileName = "private_key.enc";
+
+        /// <summary>
+        /// File name for the public key.
+        /// </summary>
         private const string PublicKeyFileName = "public_key.bin";
 
         private readonly DispatcherTimer _driveCheckTimer;
 
-        // Constructor that initializes the WPF window and its components
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MainWindow"/> class.
+        /// Sets up UI components and starts the pendrive detection timer.
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
@@ -33,12 +44,20 @@ namespace RSAKeyGenerator
             UpdatePendriveStatus();
         }
 
+        /// <summary>
+        /// Timer tick event handler to check pendrive status periodically.
+        /// </summary>
+        /// <param name="sender">Event sender.</param>
+        /// <param name="e">Event arguments.</param>
         private void DriveCheckTimer_Tick(object sender, EventArgs e)
         {
             // Check the status of the pendrive and update the status label
             UpdatePendriveStatus();
         }
 
+        /// <summary>
+        /// Checks for the presence of a removable drive (pendrive) and updates the UI accordingly.
+        /// </summary>
         private void UpdatePendriveStatus()
         {
             // Try to find the first removable drive that is ready
@@ -60,7 +79,11 @@ namespace RSAKeyGenerator
             }
         }
 
-        // Event handler for the "GenerateKeys" button click
+        /// <summary>
+        /// Handles the click event for the "GenerateKeys" button, triggers RSA key generation asynchronously.
+        /// </summary>
+        /// <param name="sender">Event sender.</param>
+        /// <param name="e">Event arguments.</param>
         private async void GenerateKeys_Click(object sender, RoutedEventArgs e)
         {
             // Get the PIN entered by the user
@@ -94,7 +117,10 @@ namespace RSAKeyGenerator
             }
         }
 
-        // Method to generate the RSA keys and save them
+        /// <summary>
+        /// Generates RSA key pair, encrypts the private key using the PIN, and saves the keys to files.
+        /// </summary>
+        /// <param name="pin">PIN used to encrypt the private key.</param>
         private void GenerateAndSaveKeys(string pin)
         {
             try
@@ -122,7 +148,12 @@ namespace RSAKeyGenerator
             }
         }
 
-        // Method to save the encrypted private key and public key to files
+        /// <summary>
+        /// Saves the encrypted private key and public key to appropriate files on the pendrive and local storage.
+        /// </summary>
+        /// <param name="encryptedPrivateKey">Encrypted private key bytes.</param>
+        /// <param name="publicKey">Public key bytes.</param>
+        /// <exception cref="InvalidOperationException">Thrown if pendrive is not detected.</exception>
         private void SaveKeys(byte[] encryptedPrivateKey, byte[] publicKey)
         {
             // Find the first removable drive (e.g., USB stick)
@@ -150,7 +181,12 @@ namespace RSAKeyGenerator
             }
         }
 
-        // Method to encrypt the private key using AES and the provided PIN
+        /// <summary>
+        /// Encrypts the private key using AES encryption with a key derived from the provided PIN and a random salt.
+        /// </summary>
+        /// <param name="privateKey">The raw private key bytes to encrypt.</param>
+        /// <param name="pin">The PIN used to derive the encryption key.</param>
+        /// <returns>Byte array containing the IV, salt, and encrypted private key data.</returns>
         private static byte[] EncryptPrivateKey(byte[] privateKey, string pin)
         {
             // Generate a random salt (16 bytes)
